@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+    <style>     
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 600px; margin: auto; text-align: center; }
+        input, button { padding: 10px; margin: 5px; }
+        table { width: 100%; margin-top: 20px; border-collapse: collapse; }
+        th, td { padding: 10px; border: 1px solid #ddd; }
+    </style>   
+
+</head>         
+<body>          
+    {% if error %}
+    <script>
+        alert("{{ error }}");
+    </script>
+    {% endif %}
+    <div class="container">
+        <h2>URL Shortener</h2>
+        <form method="POST">
+            {% csrf_token %}
+            
+            <label for="url">{{ form.url.label }}</label>
+            {{ form.url }}
+        
+            <br>
+        
+            <label for="use_alias">{{ form.use_alias.label }}</label>
+            {{ form.use_alias }}
+        
+            <br>
+        
+            <div id="alias_field" style="display: none;">
+                <label for="custom_slug">{{ form.custom_slug.label }}</label>
+                {{ form.custom_slug }}
+            </div>
+        
+            <br>
+        
+            <button type="submit">Shorten URL</button>
+        </form>
+                
+        <h3>Shortened URLs</h3>
+        <table> 
+            <tr>
+                <th>Original URL</th>
+                <th>Shortened URL</th>
+            </tr>
+            {% for entry in request_data %}
+            <tr>
+                <td><a href="{{ entry.url }}" target="_blank">{{ entry.url }}</a></td>
+                <td><a href="/{{ entry.slug }}" target="_blank">{{ request.get_host }}/{{ entry.slug }}</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <script>
+        document.getElementById('use_alias').checked = false;
+        document.getElementById('use_alias').addEventListener('change', function () {
+            let aliasField = document.getElementById('alias_field');
+            let aliasInput = document.getElementById('custom_slug');
+            
+            if (this.checked) {
+                aliasField.style.display = 'block';
+            } else {
+                aliasField.style.display = 'none';
+                aliasInput.value = ''; // Clear input when unchecked
+            }
+        });
+    </script>
+
+</body>
+</html>

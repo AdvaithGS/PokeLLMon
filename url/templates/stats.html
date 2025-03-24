@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Statistics</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 600px; margin: auto; text-align: center; }
+        table { width: 100%; margin-top: 20px; border-collapse: collapse; }
+        th, td { padding: 10px; border: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>URL Statistics</h2>
+        <table>
+            <tr>
+                <th>Shortened URL</th>
+                <th>Original URL</th>
+                <th>Visits</th>
+            </tr>
+            {% for entry in data %}
+            <tr>
+                <td><a href="/{{ entry.slug }}" target="_blank">{{ request.get_host }}/{{ entry.slug }}</a></td>
+                <td><a href="{{ entry.url }}" target="_blank">{{ entry.url }}</a></td>
+                <td>{{ entry.count }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
