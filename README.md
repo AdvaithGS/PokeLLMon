@@ -22,24 +22,24 @@ A simple and efficient **URL Shortener** built using **Django**. This project al
 
 ## Installation & Setup
 
-### 1️⃣ Clone the Repository
+### 1. Clone the Repository
 ```sh
 git clone https://github.com/AdvaithGS/URL_Shortener.git
 cd URL_Shortener
 ```
 
-### 3️⃣ Install Dependencies
+### 2. Install Dependencies
 ```sh
 pip install -r requirements.txt
 ```
 
-### 4️⃣ Apply Database Migrations
+### 3. Apply Database Migrations
 ```sh
 python manage.py makemigrations
 python manage.py migrate
 ```
 
-### 5️⃣ Make Checks,and run the Server
+### 4. Make Checks,and run the Server
 ```sh
 python manage.py check
 python manage.py runserver
@@ -48,20 +48,20 @@ Access the app at: **http://127.0.0.1:8000/**
 
 ---
 
-## 🎯 URL Shortening Process
+## URL Shortening Process
 
-### 1️⃣ Shortening a URL
+### Shortening a URL
 - Enter a valid URL in the input field.
 - (Optional) Enable "Use custom alias?" and provide a custom short name.
 - Click the **Shorten URL** button.
 - If the alias is available, the system generates a shortened URL.
 - If no alias is provided, a unique slug is generated using `hashlib`.
 
-### 2️⃣ Redirecting to the Original URL
+### Redirecting to the Original URL
 - Visit the shortened URL (`http://127.0.0.1:8000/u/<slug>/`).
 - The system redirects to the original long URL and updates the visit count.
 
-### 3️⃣ Viewing URL Statistics
+### Viewing URL Statistics
 - Visit **http://127.0.0.1:8000/stats/** to see:
   - The original long URL
   - The generated short URL
