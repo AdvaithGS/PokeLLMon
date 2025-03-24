@@ -74,13 +74,13 @@ Access the app at: **http://127.0.0.1:8000/**
 - The system validates input to ensure only properly formatted URLs are accepted.
 - Users are alerted if an invalid URL is entered.
 
-### **Alias Conflicts**
+### **Custom Alias Conflicts**
 - If a user selects a custom alias that is already taken, an **alert message** is displayed.
 - The user can then select a different alias.
 
 ### **Non-Existent Short URLs**
-- If a user attempts to access a non-existent short URL, they are shown a **404 error page**.
-
+- If a user attempts to access a non-existent short URL, they are shown a **alert message**.
+- The user can select another URL to shorten
 ---
 
 ## Project Structure
