@@ -4,6 +4,7 @@ A simple and efficient **URL Shortener** built using **Django**. This project al
 
 ## Features
 - **Shorten URLs** automatically using a **hash-based system**.
+- **Uniqueness** any link will always generate the same short code
 - **Custom Aliases**: Users can define their own short URLs.
 - **Error Handling** for invalid URLs and duplicate aliases.
 - **Visit Tracking**: Each shortened URL maintains a count of visits, that can be looked at through a dedicated webpage
