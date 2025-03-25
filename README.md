@@ -102,5 +102,5 @@ URL_Shortener
 ```
 ## Restart Database
 ---
-To start over with the database (remove existing mappings), delete the `db.sqlite3` file in the main folder  
+- To start over with the database (remove existing mappings), delete the `db.sqlite3` file in the main folder  
 ---
